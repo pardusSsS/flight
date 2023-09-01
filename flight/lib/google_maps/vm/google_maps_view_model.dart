@@ -3,6 +3,7 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:flight/core/device/constants.dart';
 import 'package:flight/google_maps/model/flight_map_model.dart';
 import 'package:flight/google_maps/view/google_maps.dart';
 import 'package:flutter/material.dart';
@@ -12,8 +13,7 @@ import 'package:http/http.dart' as http;
 abstract class GoogleMapsViewModel extends State<GoogleMaps> {
   BitmapDescriptor? locationIcon;
   GoogleMapController? controller;
-  final firebaseServiceEndPoint =
-      "https://flight-74652-default-rtdb.firebaseio.com/map.json";
+  final firebaseServiceEndPoint = AppConstant.API_SERVICE_URL;
   List<FlightMap> flightList = [];
 
   void navigateToRoot({required int index}) {

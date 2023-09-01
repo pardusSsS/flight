@@ -13,13 +13,19 @@ class CountryCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final pageWidth = MediaQuery.of(context).size.width;
+    final pageHeight = MediaQuery.of(context).size.height;
     return Card(
       child: Center(
         child: InkWell(
           onTap: onPressed,
           child: ListTile(
             title: Text(title),
-            trailing: FlightCacheImage(imageUrl: imageUrl),
+            trailing: FlightCacheImage(
+              imageUrl: imageUrl,
+              width: pageWidth * .1,
+              height: pageHeight * .1,
+            ),
           ),
         ),
       ),

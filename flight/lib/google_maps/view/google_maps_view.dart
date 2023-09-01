@@ -1,8 +1,10 @@
 // ignore_for_file: invalid_use_of_protected_member
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flight/core/view/widgets/card/country_card.dart';
 import 'package:flight/core/view/widgets/divider/bottomsheet_top_divider.dart';
+import 'package:flight/core/view/widgets/image/cached_image.dart';
 import 'package:flight/google_maps/model/flight_map_model.dart';
 import 'package:flight/google_maps/vm/google_maps_view_model.dart';
 import 'package:flight/google_maps/vm/maps_vm.dart';
@@ -87,18 +89,29 @@ class GoogleMapsView extends GoogleMapsViewModel {
               borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
             ),
             builder: (context) {
-              return _bottomSheet(item.detail);
+              return _bottomSheet(item);
             });
       },
     );
   }
 
-  Widget _bottomSheet(Detail detail) => const Column(
+  Widget _bottomSheet(FlightMap item) => Column(
         children: <Widget>[
-          BottomsheetTopDivider(
+          const BottomsheetTopDivider(
             colors: Colors.grey,
             indent: .40,
-          )
+          ),
+          FlightCacheImage(
+            imageUrl: item.photoUrl,
+            width: pageWidth(context) * 0.5,
+            height: pageHeight(context) * 0.5,
+          ),
+          Expanded(
+              child: AutoSizeText(
+            item.detail.description,
+            maxFontSize: 20,
+            minFontSize: 8,
+          ))
         ],
       );
 
