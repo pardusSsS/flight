@@ -1,7 +1,10 @@
 // ignore_for_file: invalid_use_of_protected_member
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flight/core/view/widgets/card/country_card.dart';
+import 'package:flight/core/view/widgets/divider/bottomsheet_top_divider.dart';
 import 'package:flight/google_maps/model/flight_map_model.dart';
-import 'package:flight/google_maps/google_maps_view_model.dart';
+import 'package:flight/google_maps/vm/google_maps_view_model.dart';
 import 'package:flight/google_maps/vm/maps_vm.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
@@ -68,13 +71,35 @@ class GoogleMapsView extends GoogleMapsViewModel {
         scrollDirection: Axis.horizontal,
         itemCount: flightList.length,
         itemBuilder: (BuildContext context, int index) {
-          return SizedBox(
-            width: MediaQuery.of(context).size.width - 100,
-            child: Card(
-              child: ListTile(title: Text(flightList[index].country)),
-            ),
-          );
+          return buildCountryCard(flightList[index]);
         },
+      );
+
+  Widget buildCountryCard(FlightMap item) {
+    return CountryCard(
+      imageUrl: item.photoUrl,
+      title: item.country,
+      onPressed: () {
+        showModalBottomSheet(
+            context: context,
+            enableDrag: true,
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.vertical(top: Radius.circular(25)),
+            ),
+            builder: (context) {
+              return _bottomSheet(item.detail);
+            });
+      },
+    );
+  }
+
+  Widget _bottomSheet(Detail detail) => const Column(
+        children: <Widget>[
+          BottomsheetTopDivider(
+            colors: Colors.grey,
+            indent: .40,
+          )
+        ],
       );
 
   GoogleMap get googleMap => GoogleMap(
