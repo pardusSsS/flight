@@ -8,3 +8,8 @@ class AppConstant {
 
   static const CENTER_LAT_LNG = LatLng(39.925533, 32.866287);
 }
+
+class RouteConstants {
+  static const String HOME = "/home";
+  static const String SPLASH = "/splash";
+}
