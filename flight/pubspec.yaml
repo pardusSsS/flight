@@ -45,6 +45,9 @@ dependencies:
   cached_network_image: ^3.2.3
 
   auto_size_text: ^3.0.0
+
+  json_serializable: ^6.7.1
+  json_annotation: ^4.8.1
   
 
 dev_dependencies:
