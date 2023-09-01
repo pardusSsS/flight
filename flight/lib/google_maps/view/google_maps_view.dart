@@ -1,10 +1,15 @@
 // ignore_for_file: invalid_use_of_protected_member
 
+import 'package:flight/google_maps/model/flight_map_model.dart';
 import 'package:flight/google_maps/google_maps_view_model.dart';
+import 'package:flight/google_maps/vm/maps_vm.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class GoogleMapsView extends GoogleMapsViewModel {
+  final MapsViewModel mapsViewModel = MapsViewModel();
+
   @override
   void initState() {
     super.initState();
@@ -18,16 +23,34 @@ class GoogleMapsView extends GoogleMapsViewModel {
     return Scaffold(
       floatingActionButton: floatingActionButton(),
       body: Stack(
-        children: <Widget>[googleMap, bottomListView],
+        children: <Widget>[googleMap, buildPositionedAppBar(), bottomListView],
       ),
     );
   }
 
+  Positioned buildPositionedAppBar() {
+    return Positioned(
+        height: pageHeight(context) * 0.1,
+        top: pageHeight(context) * 0.03,
+        right: 0,
+        left: 0,
+        child: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          centerTitle: true,
+          title: Observer(
+              builder: (context) => Text(
+                    mapsViewModel.title ?? "Hola",
+                    style: TextStyle(color: Colors.black),
+                  )),
+        ));
+  }
+
   Positioned get bottomListView => Positioned(
-      right: 20,
-      left: 20,
-      height: 100,
-      bottom: 20,
+      right: (pageWidth(context) * 0.05),
+      left: -(pageWidth(context) * 0.01),
+      height: (pageHeight(context) * 0.15),
+      bottom: (pageHeight(context) * 0.03),
       child: flightList.isEmpty ? loadingWidget : listViewFlights);
 
   Widget get loadingWidget => const Center(
@@ -36,11 +59,20 @@ class GoogleMapsView extends GoogleMapsViewModel {
         ),
       );
 
-  ListView get listViewFlights => ListView.builder(
+  PageView get listViewFlights => PageView.builder(
+        controller: PageController(viewportFraction: 0.8),
+        onPageChanged: (index) {
+          mapsViewModel.changeAppBarName(text: flightList[index].country);
+          navigateToRoot(index: index);
+        },
+        scrollDirection: Axis.horizontal,
         itemCount: flightList.length,
         itemBuilder: (BuildContext context, int index) {
-          return Card(
-            child: Text(flightList[index].country),
+          return SizedBox(
+            width: MediaQuery.of(context).size.width - 100,
+            child: Card(
+              child: ListTile(title: Text(flightList[index].country)),
+            ),
           );
         },
       );
@@ -48,7 +80,7 @@ class GoogleMapsView extends GoogleMapsViewModel {
   GoogleMap get googleMap => GoogleMap(
         mapType: MapType.normal,
         initialCameraPosition:
-            const CameraPosition(target: LatLng(37.0590, 37.3543)),
+            const CameraPosition(target: LatLng(37.0590, 37.3543), zoom: 20),
         onMapCreated: (map) async {
           controller = map;
           await _createMarkerImageFromAsset(context);
@@ -80,14 +112,14 @@ extension _GoogleMapsMarker on GoogleMapsView {
   }
 
   Set<Marker> _createMarker() {
-    return <Marker>{
-      Marker(
-          markerId: const MarkerId("1"),
-          position: const LatLng(37.0590, 37.3543),
-          infoWindow: const InfoWindow(title: "Hola"),
-          icon: locationIcon ??
-              BitmapDescriptor.defaultMarkerWithHue(
-                  BitmapDescriptor.hueMagenta))
-    };
+    return flightList
+        .map((e) => Marker(
+            markerId: MarkerId(e.hashCode.toString()),
+            position: e.latlong,
+            infoWindow: InfoWindow(title: e.country),
+            icon: locationIcon ??
+                BitmapDescriptor.defaultMarkerWithHue(
+                    BitmapDescriptor.hueMagenta)))
+        .toSet();
   }
 }

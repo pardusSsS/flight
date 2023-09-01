@@ -1,3 +1,5 @@
+import 'package:google_maps_flutter/google_maps_flutter.dart';
+
 class FlightMap {
   FlightMap({
     required this.country,
@@ -21,4 +23,8 @@ class FlightMap {
     _data['long'] = long;
     return _data;
   }
+}
+
+extension FlightlatLong on FlightMap {
+  LatLng get latlong => LatLng(lat, long);
 }

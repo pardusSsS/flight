@@ -1,4 +1,4 @@
-import 'package:flight/google_maps/google_maps.dart';
+import 'package:flight/google_maps/view/google_maps.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());

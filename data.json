@@ -1,0 +1,70 @@
+[
+    {
+        "country": "Turkey",
+        "detail":{
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "name":"wer",
+        "photoUrl":"https://images.unsplash.com/photo-1693035647144-fab29939ecc8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1978&q=80",
+        "status":"available",
+        "tags":[
+            {
+                "id":0,
+                "name":"String"
+            }
+        ],
+        "lat":40.2589,
+        "long":36.4403
+    },
+    {
+        "country": "Austria",
+        "detail":{
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "name":"wer",
+        "photoUrl":"https://images.unsplash.com/photo-1685745936275-82e16033083a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+        "status":"available",
+        "tags":[
+            {
+                "id":0,
+                "name":"String"
+            }
+        ],
+        "lat":30.045,
+        "long":39.6036
+    },
+    {
+        "country": "United Arab Emirates",
+        "detail":{
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "name":"wer",
+        "photoUrl":"https://images.unsplash.com/photo-1693251537183-ac885147f453?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+        "status":"available",
+        "tags":[
+            {
+                "id":0,
+                "name":"String"
+            }
+        ],
+        "lat":40.1515,
+        "long":32.444
+    },
+    {
+        "country": "Oman",
+        "detail":{
+            "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+        },
+        "name":"wer",
+        "photoUrl":"https://images.unsplash.com/photo-1693240817505-f59d02b89ef9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80",
+        "status":"available",
+        "tags":[
+            {
+                "id":0,
+                "name":"String"
+            }
+        ],
+        "lat":39.4234,
+        "long":29.9814
+    }
+]
