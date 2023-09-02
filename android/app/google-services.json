@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "160775928049",
+    "project_id": "flight-74652",
+    "storage_bucket": "flight-74652.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:160775928049:android:fedf3996048b025bedd150",
+        "android_client_info": {
+          "package_name": "com.pardus.tech.flight"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "160775928049-8r736hc9a1u1o20a37pej2e0hps5glmc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.pardus.tech.flight",
+            "certificate_hash": "71ea8dffa20ac77ce9bba8e8e049f53ab5c3417a"
+          }
+        },
+        {
+          "client_id": "160775928049-4qc2adiq4ercp24vpbsoc39ic2sfuen6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD1xaPJ-U8bnEaDJ-zlMtx810DkCw8XOAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "160775928049-4qc2adiq4ercp24vpbsoc39ic2sfuen6.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

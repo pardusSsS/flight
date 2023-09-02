@@ -6,6 +6,23 @@
     "configurations": [
         {
             "name": "flight",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "flight (profile mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "flight (release mode)",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        },
+        {
+            "name": "flight",
             "cwd": "flight",
             "request": "launch",
             "type": "dart"
