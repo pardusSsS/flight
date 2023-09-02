@@ -1,4 +1,5 @@
 import 'package:flight/core/view/widgets/image/cached_image.dart';
+import 'package:flight/core/view/widgets/lottie/lottie_widget.dart';
 import 'package:flutter/material.dart';
 
 class CountryCard extends StatelessWidget {
@@ -21,6 +22,7 @@ class CountryCard extends StatelessWidget {
           onTap: onPressed,
           child: ListTile(
             title: Text(title),
+            leading: const LottieCustomWidget(path: "leading"),
             trailing: FlightCacheImage(
               imageUrl: imageUrl,
               width: pageWidth * .1,
